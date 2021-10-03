@@ -147,7 +147,13 @@ auto RenderVisual()->VOID
 
 		auto bVisible = isVisible(Entity.actor_mesh);
 		auto ESP_Color = GetVisibleColor(bVisible);
+		if (true)
+		{
+			auto m_Charatermovement = read<uint64_t>(Entity.actor_pawn + 0x288);
+			auto m_CharaterBase = read<uint64_t>(m_Charatermovement + 0x848);//KSCharacterOwner
+			write<bool>(m_CharaterBase + 0xad4, 1);//bRevealed
 
+		}
 		if (CFG.b_Aimbot)
 		{
 			if (CFG.b_AimbotFOV)
